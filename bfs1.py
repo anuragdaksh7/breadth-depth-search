@@ -23,3 +23,17 @@ nodes["n2"] = []
 nodes["n1"] = ["target","n2"]
 nodes["n3"] = ["n4","n2"]
 nodes["parent"]=["n1","n3"]
+
+
+def chkKey(key):
+	print(key)
+	if len(nodes[key]) == 0 and key != "target":
+		#print("hmm")
+		return
+	for i in nodes[key]:
+		if i[0] != "target":
+			chkKey(i)
+		else :
+			print("found")
+			return
+chkKey("parent")
